@@ -5,22 +5,24 @@
  */
 package view;
 
-import controller.KhachHangController;
+import controller.KhachHangDSController;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author ADMIN
  */
-public class KhachHangInfo extends javax.swing.JFrame {
+public class KhachHangView extends javax.swing.JFrame {
 
     /**
      * Creates new form KhachHangInfo
      */
-    public KhachHangInfo() {
+    public KhachHangView() {
         initComponents();
-        KhachHangController controller = new KhachHangController(
+        KhachHangDSController controller = new KhachHangDSController(
                 jPanel1, jButton1, jTextField1);
         controller.setDataToTable();
+        controller.setEvent();
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
     }
 
@@ -40,6 +42,11 @@ public class KhachHangInfo extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("+ Thêm mới");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -81,6 +88,27 @@ public class KhachHangInfo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+//        DefaultTableModel model = (DefaultTableModel) table.getModel();
+//                    int selectedRowIndex = table.getSelectedRow();
+//                    
+//                    selectedRowIndex = table.convertRowIndexToModel(selectedRowIndex);
+//
+//                    KhachHang khachHang = new KhachHang();
+//                    khachHang.setHo(model.getValueAt(selectedRowIndex, 2).toString());
+//                    khachHang.setTen(model.getValueAt(selectedRowIndex, 3).toString());
+//                    khachHang.setNam_sinh(Integer.parseInt(model.getValueAt(selectedRowIndex, 4).toString()));
+//                    khachHang.setDchi(model.getValueAt(selectedRowIndex, 5).toString());
+//                    khachHang.setTong(Long.parseLong(model.getValueAt(selectedRowIndex, 6).toString()));
+//
+//                    KhachHangFrame frame = new KhachHangFrame(khachHang);
+//                    frame.setLocationRelativeTo(null);
+//                    frame.setResizable(false);
+//                    frame.setTitle("Thông tin học viên");
+//                    frame.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -98,20 +126,21 @@ public class KhachHangInfo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(KhachHangInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KhachHangView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(KhachHangInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KhachHangView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(KhachHangInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KhachHangView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(KhachHangInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KhachHangView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new KhachHangInfo().setVisible(true);
+                new KhachHangView().setVisible(true);
             }
         });
     }

@@ -41,4 +41,36 @@ public class KhachHangDAO {
         }
         return list;
     }
+    
+    public int createOrUpdate(KhachHang khachHang) {
+        try {
+            Connection cons = DBConnection.getConnection();
+            String sql = "INSERT INTO khach_hang(id_khach, ho, ten, nam_sinh, dia_chi, tong_tien)"
+                    + " VALUES(?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE ho = VALUES(ho), ten = VALUES(ten), nam_sinh = VALUES(nam_sinh), "
+                    + "dia_chi = VALUES(dia_chi), tong_tien = VALUES(tong_tien);";
+            PreparedStatement ps = cons.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, khachHang.getId_khach());
+            ps.setString(2, khachHang.getHo());
+            ps.setString(3, khachHang.getTen());
+            ps.setInt(4, khachHang.getNam_sinh());
+            ps.setString(5, khachHang.getDchi());
+            ps.setLong(6, khachHang.getTong());
+//            ps.setString(6, khachHang.getHang());
+//            ps.setInt(7, khachHang.getTuoi());
+            ps.execute();
+            ResultSet rs = ps.getGeneratedKeys();
+            int generatedKey = 0;
+            if (rs.next()) {
+                generatedKey = rs.getInt(1);
+            }
+            ps.close();
+            cons.close();
+            return generatedKey;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return 0;
+    }
+
+
 }

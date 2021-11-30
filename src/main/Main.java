@@ -2,11 +2,11 @@
 package main;
 
 import javax.swing.JFrame;
-import view.KhachHangInfo;
+//import view.;
 
 public class Main {
     public static void main(String[] args) {
-        JFrame jf = new KhachHangInfo();
-        jf.setVisible(true);
+//        JFrame jf = new TrangChu();
+//        jf.setVisible(true);
     }
 }

@@ -2,13 +2,12 @@
 package model;
 
 public class SanPham {
-    private int id_sp, id_lo;
+    private int id_sp;
     private String ten, don_vi, nganh;
-    private long don_gia;
+    private int don_gia;
 
-    public SanPham(int id_sp, int id_lo, String ten, String don_vi, String nganh, long don_gia) {
+    public SanPham(int id_sp, String ten, String don_vi, String nganh, int don_gia) {
         this.id_sp = id_sp;
-        this.id_lo = id_lo;
         this.ten = ten;
         this.don_vi = don_vi;
         this.nganh = nganh;
@@ -26,13 +25,6 @@ public class SanPham {
         this.id_sp = id_sp;
     }
 
-    public int getId_lo() {
-        return id_lo;
-    }
-
-    public void setId_lo(int id_lo) {
-        this.id_lo = id_lo;
-    }
 
     public String getTen() {
         return ten;
@@ -58,11 +50,11 @@ public class SanPham {
         this.nganh = nganh;
     }
 
-    public long getDon_gia() {
+    public int getDon_gia() {
         return don_gia;
     }
 
-    public void setDon_gia(long don_gia) {
+    public void setDon_gia(int don_gia) {
         this.don_gia = don_gia;
     }
     

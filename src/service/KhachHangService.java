@@ -26,4 +26,7 @@ public class KhachHangService {
         return khachHangDAO.getList();
     }
 
+     public int createOrUpdate(KhachHang khachHang) {
+        return khachHangDAO.createOrUpdate(khachHang);
+    }
 }

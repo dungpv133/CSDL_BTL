@@ -19,9 +19,28 @@ public class ClassTableModel {
                 return false;
             }
 
+//            @Override
+//            public Class<?> getColumnClass(int columnIndex) {
+//                return columnIndex == 9 ? Boolean.class : String.class;
+//            }
+            
             @Override
-            public Class<?> getColumnClass(int columnIndex) {
-                return columnIndex == 9 ? Boolean.class : String.class;
+            public Class getColumnClass(int column) {
+                switch (column) {
+                    case 0:
+                        return Integer.class;
+                    case 1:
+                        return Integer.class;
+                    case 4:
+                        return Integer.class;
+                    case 6:
+                        return Integer.class;
+                    case 7:
+                        return Integer.class;
+                        
+                    default:
+                        return String.class;
+                }
             }
         };
         dtm.setColumnIdentifiers(listColumn);

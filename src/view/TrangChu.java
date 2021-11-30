@@ -1,7 +1,6 @@
 
 import view.DonHangView;
-import view.KhachHangInfo;
-import view.LoHangView;
+import view.KhachHangView;
 import view.SanPhamView;
 
 
@@ -32,7 +31,6 @@ public class TrangChu extends javax.swing.JFrame {
         btKhach = new javax.swing.JButton();
         btDon = new javax.swing.JButton();
         btSanPham = new javax.swing.JButton();
-        btLoHang = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -65,16 +63,6 @@ public class TrangChu extends javax.swing.JFrame {
         btSanPham.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btSanPhamActionPerformed(evt);
-            }
-        });
-
-        btLoHang.setBackground(new java.awt.Color(51, 255, 0));
-        btLoHang.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        btLoHang.setForeground(new java.awt.Color(255, 255, 255));
-        btLoHang.setText("QUẢN LÝ LÔ HÀNG");
-        btLoHang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btLoHangActionPerformed(evt);
             }
         });
 
@@ -114,8 +102,7 @@ public class TrangChu extends javax.swing.JFrame {
                     .addComponent(btSanPham, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btDon, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btKhach, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btLoHang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(115, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -129,9 +116,7 @@ public class TrangChu extends javax.swing.JFrame {
                 .addComponent(btDon, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btSanPham, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(btLoHang, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                .addGap(35, 35, 35))
+                .addGap(123, 123, 123))
         );
 
         pack();
@@ -140,7 +125,7 @@ public class TrangChu extends javax.swing.JFrame {
     private void btKhachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btKhachActionPerformed
            // TODO add your handling code here:
 //           new KhachHangView().setVisible(true);
-            new KhachHangInfo().setVisible(true);
+            new KhachHangView().setVisible(true);
            
     }//GEN-LAST:event_btKhachActionPerformed
 
@@ -155,11 +140,6 @@ public class TrangChu extends javax.swing.JFrame {
          new SanPhamView().setVisible(true);
 
     }//GEN-LAST:event_btSanPhamActionPerformed
-
-    private void btLoHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoHangActionPerformed
-        // TODO add your handling code here:
-        new LoHangView().setVisible(true);
-    }//GEN-LAST:event_btLoHangActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,7 +180,6 @@ public class TrangChu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btDon;
     private javax.swing.JButton btKhach;
-    private javax.swing.JButton btLoHang;
     private javax.swing.JButton btSanPham;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
