@@ -47,7 +47,10 @@ public class KhachHangDAO {
             Connection cons = DBConnection.getConnection();
             String sql = "INSERT INTO khach_hang(id_khach, ho, ten, nam_sinh, dia_chi, tong_tien)"
                     + " VALUES(?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE ho = VALUES(ho), ten = VALUES(ten), nam_sinh = VALUES(nam_sinh), "
-                    + "dia_chi = VALUES(dia_chi), tong_tien = VALUES(tong_tien);";
+                    + "dia_chi = VALUES(dia_chi), tong_tien = VALUES(tong_tien); ";
+            String sqlUpdate =  "update sieuthi.khach_hang, sieuthi.don_hang " +
+                        "set sieuthi.khach_hang.tong_tien = (select sum(sieuthi.don_hang.tong_tien) " +
+                        "from sieuthi.don_hang where sieuthi.don_hang.id_khach = sieuthi.khach_hang.id_khach);";
             PreparedStatement ps = cons.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setInt(1, khachHang.getId_khach());
             ps.setString(2, khachHang.getHo());
@@ -63,6 +66,8 @@ public class KhachHangDAO {
             if (rs.next()) {
                 generatedKey = rs.getInt(1);
             }
+            ps = cons.prepareStatement(sqlUpdate);
+            ps.execute();
             ps.close();
             cons.close();
             return generatedKey;
@@ -72,5 +77,22 @@ public class KhachHangDAO {
         return 0;
     }
 
+    public  int DeleteById(int id)
+    {
+        try {
+            Connection cons = DBConnection.getConnection();
+            String sql = "DELETE FROM TABLE sieuthi.khach_hang WHERE id_khach = ?";
+            PreparedStatement ps = cons.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, id);
+            ps.execute();
+            ResultSet rs = ps.getGeneratedKeys();
+            ps.close();
+            cons.close();
+            return  rs.getInt(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 
 }

@@ -29,4 +29,9 @@ public class KhachHangService {
      public int createOrUpdate(KhachHang khachHang) {
         return khachHangDAO.createOrUpdate(khachHang);
     }
+    
+     public int deleteById(int id)
+     {
+         return khachHangDAO.DeleteById(id);
+     }
 }

@@ -33,6 +33,7 @@ public class KhachHangDSController {
     private JPanel jpnView;
     private JButton btnAdd;
     private JTextField jtfSearch;
+    private JButton btnUpdate;
 
     private ClassTableModel classTableModel = null;
 
@@ -43,11 +44,11 @@ public class KhachHangDSController {
 
     private TableRowSorter<TableModel> rowSorter = null;
 
-    public KhachHangDSController(JPanel jpnView, JButton btnAdd, JTextField jtfSearch) {
+    public KhachHangDSController(JPanel jpnView, JButton btnAdd, JTextField jtfSearch, JButton btnUpdate) {
         this.jpnView = jpnView;
         this.btnAdd = btnAdd;
         this.jtfSearch = jtfSearch;
-
+        this.btnUpdate = btnUpdate;
         this.classTableModel = new ClassTableModel();
 
         this.khachHangService = new KhachHangService();
@@ -117,7 +118,7 @@ public class KhachHangDSController {
                     KhachHangFrame frame = new KhachHangFrame(khachHang);
                     frame.setLocationRelativeTo(null);
                     frame.setResizable(false);
-                    frame.setTitle("Thông tin học viên");
+                    frame.setTitle("Thông tin khách hàng");
                     frame.setVisible(true);
              }
       }
@@ -148,6 +149,9 @@ public class KhachHangDSController {
             @Override
             public void mouseClicked(MouseEvent e) {
                 new KhachHangFrame(new KhachHang()).setVisible(true);
+//                  KhachHangFrame khachHangFrame = new KhachHangFrame(new KhachHang());
+//                  khachHangFrame.setVisible(true);
+//                  khachHangFrame.set
             }
             
             @Override
@@ -160,6 +164,27 @@ public class KhachHangDSController {
             public void mouseExited(MouseEvent e)
             {
                 btnAdd.setBackground(new Color(100, 221, 23));
+            }
+        });
+    }
+    public void setEventUpdate() {
+        btnUpdate.addMouseListener(new MouseAdapter(){
+            
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                setDataToTable();
+            }
+            
+            @Override
+            public void mouseEntered(MouseEvent e)
+            {
+                btnUpdate.setBackground(new Color(0, 200, 83));
+            }
+            
+            @Override
+            public void mouseExited(MouseEvent e)
+            {
+                btnUpdate.setBackground(new Color(100, 221, 23));
             }
         });
     }

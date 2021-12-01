@@ -1,18 +1,17 @@
 
 package model;
 
-import java.util.Date;
 
 
 public class DonHang {
     private int id_khach, id_don, so_sp;
     private long tien, giam, tong;
-    private Date ngay;
+    private String ngay;
 
     public DonHang() {
     }
 
-    public DonHang(int id_khach, int id_don, int so_sp, long tien, long giam, long tong, Date ngay) {
+    public DonHang(int id_khach, int id_don, int so_sp, long tien, long giam, long tong, String ngay) {
         this.id_khach = id_khach;
         this.id_don = id_don;
         this.so_sp = so_sp;
@@ -71,11 +70,11 @@ public class DonHang {
         this.tong = tong;
     }
 
-    public Date getNgay() {
+    public String getNgay() {
         return ngay;
     }
 
-    public void setNgay(Date ngay) {
+    public void setNgay(String ngay) {
         this.ngay = ngay;
     }
     

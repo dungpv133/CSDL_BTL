@@ -27,48 +27,49 @@
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jlbMsg" max="32767" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="BtSave" min="-2" pref="259" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="LblHo" alignment="0" max="32767" attributes="0"/>
+                          <Component id="LbTen" alignment="0" max="32767" attributes="0"/>
+                          <Component id="LbNam" alignment="0" max="32767" attributes="0"/>
+                          <Component id="LbDChi" alignment="0" max="32767" attributes="0"/>
+                      </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="LabelInfo" alignment="0" min="-2" pref="347" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="LblHo" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="LbTen" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="LbNam" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="LbDChi" alignment="0" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="TxtDchi" min="-2" pref="414" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="28" pref="28" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="TxtHo" min="-2" pref="253" max="-2" attributes="0"/>
+                                  <Component id="TxtTen" min="-2" pref="253" max="-2" attributes="0"/>
+                                  <Component id="TxtNam" min="-2" pref="253" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="LbTongTien" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jlbId" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="TxtDchi" min="-2" pref="414" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="28" pref="28" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="TxtHo" min="-2" pref="253" max="-2" attributes="0"/>
-                                          <Component id="TxtTen" min="-2" pref="253" max="-2" attributes="0"/>
-                                          <Component id="TxtNam" min="-2" pref="253" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="LbTongTien" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jlbId" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtId" min="-2" pref="236" max="-2" attributes="0"/>
-                                          <Component id="TxtTong" min="-2" pref="236" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <Component id="txtId" min="-2" pref="236" max="-2" attributes="0"/>
+                                  <Component id="TxtTong" min="-2" pref="236" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace pref="127" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jlbMsg" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="LabelInfo" min="-2" pref="347" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="BtSave" min="-2" pref="259" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
