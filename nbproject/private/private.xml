@@ -3,11 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/Hoc_java/QuanLySieuThi/src/view/DonHangView.java</file>
             <file>file:/D:/Hoc_java/QuanLySieuThi/src/controller/KhachHangDSController.java</file>
-            <file>file:/D:/Hoc_java/QuanLySieuThi/src/view/KhachHangView.java</file>
             <file>file:/D:/Hoc_java/QuanLySieuThi/src/DAO/KhachHangDAO.java</file>
-            <file>file:/D:/Hoc_java/QuanLySieuThi/src/service/KhachHangService.java</file>
-            <file>file:/D:/Hoc_java/QuanLySieuThi/src/view/KhachHangFrame.java</file>
+            <file>file:/D:/Hoc_java/QuanLySieuThi/src/view/SanPhamView.java</file>
+            <file>file:/D:/Hoc_java/QuanLySieuThi/src/controller/SanPhamDSController.java</file>
+            <file>file:/D:/Hoc_java/QuanLySieuThi/src/view/DonChiTietFrame.java</file>
+            <file>file:/D:/Hoc_java/QuanLySieuThi/src/DAO/DonHangDAO.java</file>
+            <file>file:/D:/Hoc_java/QuanLySieuThi/src/view/TrangChu.java</file>
         </group>
     </open-files>
 </project-private>

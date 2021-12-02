@@ -34,6 +34,7 @@ public class SanPhamDSController {
     private JPanel jpnView;
     private JButton btnAdd;
     private JTextField jtfSearch;
+    private JButton btnUpdate;
 
     private ClassTableModelSanPham classTableModelSanPham = null;
 
@@ -44,11 +45,11 @@ public class SanPhamDSController {
 
     private TableRowSorter<TableModel> rowSorter = null;
 
-    public SanPhamDSController(JPanel jpnView, JButton btnAdd, JTextField jtfSearch) {
+    public SanPhamDSController(JPanel jpnView, JButton btnAdd, JTextField jtfSearch, JButton btnUpdate) {
         this.jpnView = jpnView;
         this.btnAdd = btnAdd;
         this.jtfSearch = jtfSearch;
-
+        this.btnUpdate = btnUpdate;
         this.classTableModelSanPham = new ClassTableModelSanPham();
 
         this.sanPhamService = new SanPhamService();
@@ -162,4 +163,25 @@ public class SanPhamDSController {
         });
     }
 
+    public void setEventUpdate() {
+        btnUpdate.addMouseListener(new MouseAdapter(){
+            
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                setDataToTable();
+            }
+            
+            @Override
+            public void mouseEntered(MouseEvent e)
+            {
+                btnUpdate.setBackground(new Color(0, 200, 83));
+            }
+            
+            @Override
+            public void mouseExited(MouseEvent e)
+            {
+                btnUpdate.setBackground(new Color(100, 221, 23));
+            }
+        });
+    }
 }
