@@ -31,8 +31,8 @@ public class DonChiTietService {
         return donChiTietDAO.createOrUpdate(donChiTiet);
     }
     
-     public int deleteById(int id)
+     public int deleteById(int idDon, int idSp)
      {
-         return donChiTietDAO.DeleteById(id);
+         return donChiTietDAO.DeleteById(idDon, idSp);
      }
 }

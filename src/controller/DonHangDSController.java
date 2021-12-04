@@ -133,7 +133,7 @@ public class DonHangDSController {
                     DonHangFrame frame = new DonHangFrame(donHang);
                     frame.setLocationRelativeTo(null);
                     frame.setResizable(false);
-                    frame.setTitle("Thông tin khách hàng");
+                    frame.setTitle("Thông tin đơn hàng");
                     frame.setVisible(true);
              }
       }

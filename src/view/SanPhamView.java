@@ -19,7 +19,7 @@ public class SanPhamView extends javax.swing.JFrame {
      */
     public SanPhamView() {
         initComponents();
-        setTitle("Quan ly san pham");
+        setTitle("Quản lý sản phẩm");
         SanPhamDSController controller = new SanPhamDSController(
                 jPanel1, btAdd, jTextField1, btUpdate);
         controller.setDataToTable();

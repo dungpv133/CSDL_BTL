@@ -21,7 +21,7 @@ public class TrangChu extends javax.swing.JFrame {
     
     public TrangChu() {
         initComponents();
-        setTitle("QUAN LY SIEU THI");
+        setTitle("QUẢN LÝ SIÊU THỊ");
     }
 
     

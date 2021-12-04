@@ -71,18 +71,38 @@ public class DonChiTietDAO {
         return 0;
     }
 
-    public  int DeleteById(int id)
+   public  int DeleteById(int idDon, int idSp)
     {
         try {
             Connection cons = DBConnection.getConnection();
-            String sql = "DELETE FROM TABLE sieuthi.khach_hang WHERE id_khach = ?";
-            PreparedStatement ps = cons.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, id);
+            String sql = "DELETE FROM sieuthi.don_chi_tiet WHERE sieuthi.don_chi_tiet.id_don = ? "
+                    + " AND sieuthi.don_chi_tiet.id_sp = ? ; ";
+            String sqlCount = "SELECT COUNT(*) FROM sieuthi.don_chi_tiet; ";
+            int before = 0, after = 0;
+            PreparedStatement ps = cons.prepareStatement(sqlCount);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+            {
+                before = rs.getInt("COUNT(*)");
+            }
+            
+            ps = cons.prepareStatement(sql);
+            ps.setInt(1, idDon);
+            ps.setInt(2, idSp);
             ps.execute();
-            ResultSet rs = ps.getGeneratedKeys();
+//            ResultSet rs = ps.getGeneratedKeys();
+
+            ps = cons.prepareStatement(sqlCount);
+            rs = ps.executeQuery();
+            while(rs.next())
+            {
+                after = rs.getInt("COUNT(*)");
+            }
             ps.close();
             cons.close();
-            return  rs.getInt(1);
+            if(before == after)
+                return 0;
+            return 1;
         } catch (Exception e) {
             e.printStackTrace();
         }

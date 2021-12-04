@@ -21,7 +21,7 @@ public class DonChiTietFrame extends javax.swing.JFrame {
      */
     public DonChiTietFrame(DonChiTiet donChiTiet) {
         initComponents();
-        setTitle("Thong tin khach hang");
+        setTitle("Thông tin đơn chi tiết");
         DonChiTietNewController donChiTietNewController = 
                 new DonChiTietNewController(BtSave, txtIdDon, TxtIdSanPham, txtSoLuong, jlbTongTien,jlbMsg);
         donChiTietNewController.setView(donChiTiet);
@@ -53,6 +53,7 @@ public class DonChiTietFrame extends javax.swing.JFrame {
         txtSoLuong = new javax.swing.JTextField();
         jlbMsg = new javax.swing.JLabel();
         jlbTongTien = new javax.swing.JLabel();
+        btnSample = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,6 +105,14 @@ public class DonChiTietFrame extends javax.swing.JFrame {
 
         jlbTongTien.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
 
+        btnSample.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        btnSample.setText("Đơn hàng mẫu");
+        btnSample.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSampleActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -111,6 +120,15 @@ public class DonChiTietFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jlbMsg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(LabelInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 271, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(BtSave, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(LblHo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -125,18 +143,11 @@ public class DonChiTietFrame extends javax.swing.JFrame {
                             .addComponent(jlbId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(71, 71, 71)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtSoLuong, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-                            .addComponent(jlbTongTien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(143, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jlbMsg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(LabelInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(BtSave, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47))))
+                            .addComponent(btnSample, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtSoLuong, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+                                .addComponent(jlbTongTien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,7 +170,9 @@ public class DonChiTietFrame extends javax.swing.JFrame {
                     .addComponent(TxtIdSanPham, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlbId, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlbTongTien, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addComponent(btnSample, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -181,6 +194,11 @@ public class DonChiTietFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_BtSaveActionPerformed
+
+    private void btnSampleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSampleActionPerformed
+        // TODO add your handling code here:
+        new DonChiTietSample().setVisible(true);
+    }//GEN-LAST:event_btnSampleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,6 +244,7 @@ public class DonChiTietFrame extends javax.swing.JFrame {
     private javax.swing.JLabel LbTongTien;
     private javax.swing.JLabel LblHo;
     private javax.swing.JTextField TxtIdSanPham;
+    private javax.swing.JButton btnSample;
     private javax.swing.JLabel jlbId;
     private javax.swing.JLabel jlbMsg;
     private javax.swing.JLabel jlbTongTien;

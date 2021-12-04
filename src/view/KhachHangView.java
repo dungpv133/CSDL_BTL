@@ -19,7 +19,7 @@ public class KhachHangView extends javax.swing.JFrame {
      */
     public KhachHangView() {
         initComponents();
-        setTitle("Quan ly khach hang");
+        setTitle("Quản lý khách hàng");
         KhachHangDSController controller = new KhachHangDSController(
                 jPanel1, jButton1, jTextField1, BtUpdate);
         controller.setDataToTable();

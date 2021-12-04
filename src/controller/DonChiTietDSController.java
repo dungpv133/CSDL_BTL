@@ -128,7 +128,7 @@ public class DonChiTietDSController {
                     DonChiTietFrame frame = new DonChiTietFrame(donChiTiet);
                     frame.setLocationRelativeTo(null);
                     frame.setResizable(false);
-                    frame.setTitle("Thông tin khách hàng");
+                    frame.setTitle("Thông tin chi tiết đơn hàng");
                     frame.setVisible(true);
              }
       }

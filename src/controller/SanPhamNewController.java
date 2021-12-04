@@ -21,7 +21,7 @@ public class SanPhamNewController {
     private JTextField jtfDonVi;
     private JTextField jtfDonGia;
     private JTextField jtfNganh;
-    private JTextField jtfId;
+    private JLabel jlbId;
 //    private JTextArea jtaDiaChi;
     private JLabel jlbMsg;
 
@@ -29,13 +29,13 @@ public class SanPhamNewController {
 
     private SanPhamService sanPhamService = null;
 
-    public SanPhamNewController(JButton btnSubmit, JTextField jtfTen, JTextField jtfDonVi, JTextField jtfDonGia, JTextField jtfNganh, JTextField jtfId, JLabel jlbMsg) {
+    public SanPhamNewController(JButton btnSubmit, JTextField jtfTen, JTextField jtfDonVi, JTextField jtfDonGia, JTextField jtfNganh, JLabel jlbId, JLabel jlbMsg) {
         this.btnSubmit = btnSubmit;
         this.jtfTen = jtfTen;
         this.jtfDonVi = jtfDonVi;
         this.jtfDonGia = jtfDonGia;
         this.jtfNganh = jtfNganh;
-        this.jtfId = jtfId;
+        this.jlbId = jlbId;
         this.jlbMsg = jlbMsg;
         
         this.sanPhamService = new SanPhamService();
@@ -52,7 +52,7 @@ public class SanPhamNewController {
         jtfDonGia.setText(Integer.toString(sanPham.getDon_gia()));
         jtfDonVi.setText(sanPham.getDon_vi());
         jtfNganh.setText(sanPham.getNganh());
-        jtfId.setText(Integer.toString(sanPham.getId_sp()));
+        jlbId.setText(Integer.toString(sanPham.getId_sp()));
         // set event
         setEvent();
     }
@@ -69,13 +69,13 @@ public class SanPhamNewController {
                         sanPham.setDon_gia(Integer.parseInt(jtfDonGia.getText()));
                         sanPham.setDon_vi(jtfDonVi.getText());
                         sanPham.setNganh(jtfNganh.getText());
-                        sanPham.setId_sp(Integer.parseInt(jtfId.getText()));
+                        sanPham.setId_sp(Integer.parseInt(jlbId.getText()));
 //                        System.out.println(sanPham.getId_sp());
                         if (showDialog()) {
                             int lastId = sanPhamService.createOrUpdate(sanPham);
                             if (lastId != 0) {
                                 sanPham.setId_sp(lastId);
-                                jtfId.setText(String.valueOf(sanPham.getId_sp()));
+                                jlbId.setText(String.valueOf(sanPham.getId_sp()));
                                 jlbMsg.setText("Xử lý cập nhật dữ liệu thành công!");
                             } else {
                                 jlbMsg.setText("Có lỗi xảy ra, vui lòng thử lại!");
