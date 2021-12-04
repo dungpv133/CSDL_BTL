@@ -29,4 +29,9 @@ public class SanPhamService {
      public int createOrUpdate(SanPham sanPham) {
         return sanPhamDAO.createOrUpdate(sanPham);
     }
+     
+      public int deleteById(int id)
+     {
+         return sanPhamDAO.DeleteById(id);
+     }
 }

@@ -25,7 +25,7 @@ public class DonChiTietNewController {
     private JTextField jtfIdDon;
     private JTextField jtfIdSanPham;
     private JTextField jtfSoLuong;
-    private JTextField jtfTongTien;
+    private JLabel jlbTongTien;
 
     private JLabel jlbMsg;
 
@@ -33,12 +33,12 @@ public class DonChiTietNewController {
 
     private DonChiTietService donChiTietService = null;
 
-    public DonChiTietNewController(JButton btnSubmit, JTextField jtfIdDon, JTextField jtfIdSanPham, JTextField jtfSoLuong, JTextField jtfTongTien, JLabel jlbMsg) {
+    public DonChiTietNewController(JButton btnSubmit, JTextField jtfIdDon, JTextField jtfIdSanPham, JTextField jtfSoLuong, JLabel jlbTongTien, JLabel jlbMsg) {
         this.btnSubmit = btnSubmit;
         this.jtfIdDon = jtfIdDon;
         this.jtfIdSanPham = jtfIdSanPham;
         this.jtfSoLuong = jtfSoLuong;
-        this.jtfTongTien = jtfTongTien;
+        this.jlbTongTien = jlbTongTien;
         this.jlbMsg = jlbMsg;
         
        this.donChiTietService = new DonChiTietService();
@@ -58,7 +58,7 @@ public class DonChiTietNewController {
         jtfIdDon.setText(Integer.toString(donChiTiet.getId_don()));
         jtfIdSanPham.setText(Integer.toString(donChiTiet.getId_sp()));
         jtfSoLuong.setText(Integer.toString(donChiTiet.getSo_luong()));
-        jtfTongTien.setText(Long.toString(donChiTiet.getTong_tien()));
+        jlbTongTien.setText(Long.toString(donChiTiet.getTong_tien()));
         // set event
         setEvent();
     }
@@ -74,7 +74,7 @@ public class DonChiTietNewController {
                         donChiTiet.setId_don(Integer.parseInt(jtfIdDon.getText()));
                         donChiTiet.setId_sp(Integer.parseInt(jtfIdSanPham.getText()));
                         donChiTiet.setSo_luong(Integer.parseInt(jtfSoLuong.getText()));
-                        donChiTiet.setTong_tien(Long.parseLong(jtfTongTien.getText()));
+                        donChiTiet.setTong_tien(Long.parseLong(jlbTongTien.getText()));
                         if (showDialog()) {
                             int lastId = donChiTietService.createOrUpdate(donChiTiet);
 //                            if (lastId != 0) {

@@ -23,7 +23,7 @@ public class DonChiTietFrame extends javax.swing.JFrame {
         initComponents();
         setTitle("Thong tin khach hang");
         DonChiTietNewController donChiTietNewController = 
-                new DonChiTietNewController(BtSave, txtIdDon, TxtIdSanPham, txtSoLuong, txtTongTien,jlbMsg);
+                new DonChiTietNewController(BtSave, txtIdDon, TxtIdSanPham, txtSoLuong, jlbTongTien,jlbMsg);
         donChiTietNewController.setView(donChiTiet);
 //        khachHangNewController.setEvent();
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -51,8 +51,8 @@ public class DonChiTietFrame extends javax.swing.JFrame {
         txtIdDon = new javax.swing.JTextField();
         TxtIdSanPham = new javax.swing.JTextField();
         txtSoLuong = new javax.swing.JTextField();
-        txtTongTien = new javax.swing.JTextField();
         jlbMsg = new javax.swing.JLabel();
+        jlbTongTien = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,14 +100,9 @@ public class DonChiTietFrame extends javax.swing.JFrame {
             }
         });
 
-        txtTongTien.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        txtTongTien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTongTienActionPerformed(evt);
-            }
-        });
-
         jlbMsg.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+
+        jlbTongTien.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -129,9 +124,9 @@ public class DonChiTietFrame extends javax.swing.JFrame {
                             .addComponent(LbTongTien)
                             .addComponent(jlbId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(71, 71, 71)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTongTien, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtSoLuong, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+                            .addComponent(jlbTongTien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(143, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,7 +158,7 @@ public class DonChiTietFrame extends javax.swing.JFrame {
                     .addComponent(LbTen, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxtIdSanPham, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlbId, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTongTien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jlbTongTien, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(201, Short.MAX_VALUE))
         );
 
@@ -181,10 +176,6 @@ public class DonChiTietFrame extends javax.swing.JFrame {
     private void txtSoLuongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSoLuongActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSoLuongActionPerformed
-
-    private void txtTongTienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTongTienActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTongTienActionPerformed
 
     private void BtSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSaveActionPerformed
         // TODO add your handling code here:
@@ -237,8 +228,8 @@ public class DonChiTietFrame extends javax.swing.JFrame {
     private javax.swing.JTextField TxtIdSanPham;
     private javax.swing.JLabel jlbId;
     private javax.swing.JLabel jlbMsg;
+    private javax.swing.JLabel jlbTongTien;
     private javax.swing.JTextField txtIdDon;
     private javax.swing.JTextField txtSoLuong;
-    private javax.swing.JTextField txtTongTien;
     // End of variables declaration//GEN-END:variables
 }

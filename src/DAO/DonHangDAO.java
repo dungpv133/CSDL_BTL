@@ -50,16 +50,16 @@ public class DonHangDAO {
                     + " VALUES(?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE "
                     + "id_khach = VALUES(id_khach), "
                     + "ngay_mua = VALUES(ngay_mua); ";
-            String sqlUpdate = "update sieuthi.don_hang " +
+            String sqlUpdate1 = "update sieuthi.don_hang " +
             "set so_sp = (select count(id_don) from sieuthi.don_chi_tiet " +
-            "where sieuthi.don_hang.id_don = sieuthi.don_chi_tiet.id_don); " +
-            "update sieuthi.don_hang, sieuthi.don_chi_tiet " +
+            "where sieuthi.don_hang.id_don = sieuthi.don_chi_tiet.id_don); ";
+            String sqlUpdate2 = "update sieuthi.don_hang, sieuthi.don_chi_tiet " +
             "set sieuthi.don_hang.tien = (select sum(sieuthi.don_chi_tiet.tong_tien) from sieuthi.don_chi_tiet " +
-            "where sieuthi.don_hang.id_don = sieuthi.don_chi_tiet.id_don); " +
-            "update sieuthi.don_hang " +
+            "where sieuthi.don_hang.id_don = sieuthi.don_chi_tiet.id_don); ";
+            String sqlUpdate3 = "update sieuthi.don_hang " +
             "set giam = (select (case when (select hang from sieuthi.khach_hang  " +
             "where don_hang.id_khach = khach_hang.id_khach) = 'VANG' then 20 " +
-            "when (select hang from sieuthi.khach_hang \n" +
+            "when (select hang from sieuthi.khach_hang " +
             "where don_hang.id_khach = khach_hang.id_khach) = 'BAC' then 10 " +
             "when (select hang from sieuthi.khach_hang  " +
             "where don_hang.id_khach = khach_hang.id_khach) = 'KHONG CO HANG' then 0 END) ); ";
@@ -78,10 +78,14 @@ public class DonHangDAO {
             if (rs.next()) {
                 generatedKey = rs.getInt(1);
             }
-            ps = cons.prepareStatement(sqlUpdate);
+            ps = cons.prepareStatement(sqlUpdate1);
+            ps.execute();
+            ps = cons.prepareStatement(sqlUpdate2);
+            ps.execute(); ps = cons.prepareStatement(sqlUpdate3);
             ps.execute();
             ps.close();
             cons.close();
+//            System.out.println(generatedKey);
             return generatedKey;
         } catch (Exception ex) {
             ex.printStackTrace();

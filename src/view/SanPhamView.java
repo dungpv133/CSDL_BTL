@@ -19,6 +19,7 @@ public class SanPhamView extends javax.swing.JFrame {
      */
     public SanPhamView() {
         initComponents();
+        setTitle("Quan ly san pham");
         SanPhamDSController controller = new SanPhamDSController(
                 jPanel1, btAdd, jTextField1, btUpdate);
         controller.setDataToTable();
@@ -40,9 +41,12 @@ public class SanPhamView extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         btUpdate = new javax.swing.JButton();
+        btDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        btAdd.setBackground(new java.awt.Color(100, 221, 23));
+        btAdd.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         btAdd.setText("+ Thêm mới");
         btAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,10 +65,21 @@ public class SanPhamView extends javax.swing.JFrame {
             .addGap(0, 339, Short.MAX_VALUE)
         );
 
+        btUpdate.setBackground(new java.awt.Color(100, 221, 23));
+        btUpdate.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         btUpdate.setText("Cập nhật");
         btUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btUpdateActionPerformed(evt);
+            }
+        });
+
+        btDelete.setBackground(new java.awt.Color(100, 221, 23));
+        btDelete.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        btDelete.setText("Xóa");
+        btDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDeleteActionPerformed(evt);
             }
         });
 
@@ -82,7 +97,9 @@ public class SanPhamView extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(69, 69, 69))
@@ -93,7 +110,8 @@ public class SanPhamView extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -128,6 +146,11 @@ public class SanPhamView extends javax.swing.JFrame {
     private void btUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btUpdateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btUpdateActionPerformed
+
+    private void btDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeleteActionPerformed
+        // TODO add your handling code here:
+        new SanPhamDelete().setVisible(true);
+    }//GEN-LAST:event_btDeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,6 +192,7 @@ public class SanPhamView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAdd;
+    private javax.swing.JButton btDelete;
     private javax.swing.JButton btUpdate;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;

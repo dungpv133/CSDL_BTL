@@ -114,6 +114,7 @@ public class KhachHangDSController {
                     khachHang.setNam_sinh(Integer.parseInt(model.getValueAt(selectedRowIndex, 4).toString()));
                     khachHang.setDchi(model.getValueAt(selectedRowIndex, 5).toString());
                     khachHang.setTong(Long.parseLong(model.getValueAt(selectedRowIndex, 6).toString()));
+                    khachHang.setTuoi(((int) model.getValueAt(selectedRowIndex, 7)));
 
                     KhachHangFrame frame = new KhachHangFrame(khachHang);
                     frame.setLocationRelativeTo(null);

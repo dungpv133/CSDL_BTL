@@ -68,5 +68,41 @@ public class SanPhamDAO {
         return 0;
     }
 
+     public  int DeleteById(int id)
+    {
+        try {
+            Connection cons = DBConnection.getConnection();
+            String sql = "DELETE FROM sieuthi.san_pham WHERE sieuthi.san_pham.id_sp = ?; ";
+            String sqlCount = "SELECT COUNT(*) FROM sieuthi.san_pham; ";
+            int before = 0, after = 0;
+            PreparedStatement ps = cons.prepareStatement(sqlCount);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+            {
+                before = rs.getInt("COUNT(*)");
+            }
+            
+            ps = cons.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.execute();
+//            ResultSet rs = ps.getGeneratedKeys();
+
+            ps = cons.prepareStatement(sqlCount);
+            rs = ps.executeQuery();
+            while(rs.next())
+            {
+                after = rs.getInt("COUNT(*)");
+            }
+            ps.close();
+            cons.close();
+            if(before == after)
+                return 0;
+            return 1;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
 
 }

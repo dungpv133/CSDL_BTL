@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import javax.crypto.spec.PSource;
 import model.KhachHang;
 /**
  *
@@ -47,7 +48,7 @@ public class KhachHangDAO {
             Connection cons = DBConnection.getConnection();
             String sql = "INSERT INTO khach_hang(id_khach, ho, ten, nam_sinh, dia_chi, tong_tien)"
                     + " VALUES(?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE ho = VALUES(ho), ten = VALUES(ten), nam_sinh = VALUES(nam_sinh), "
-                    + "dia_chi = VALUES(dia_chi), tong_tien = VALUES(tong_tien); ";
+                    + "dia_chi = VALUES(dia_chi); ";
             String sqlUpdate =  "update sieuthi.khach_hang, sieuthi.don_hang " +
                         "set sieuthi.khach_hang.tong_tien = (select sum(sieuthi.don_hang.tong_tien) " +
                         "from sieuthi.don_hang where sieuthi.don_hang.id_khach = sieuthi.khach_hang.id_khach);";
@@ -81,14 +82,32 @@ public class KhachHangDAO {
     {
         try {
             Connection cons = DBConnection.getConnection();
-            String sql = "DELETE FROM TABLE sieuthi.khach_hang WHERE id_khach = ?";
-            PreparedStatement ps = cons.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            String sql = "DELETE FROM sieuthi.khach_hang WHERE sieuthi.khach_hang.id_khach = ?; ";
+            String sqlCount = "SELECT COUNT(*) FROM sieuthi.khach_hang; ";
+            int before = 0, after = 0;
+            PreparedStatement ps = cons.prepareStatement(sqlCount);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+            {
+                before = rs.getInt("COUNT(*)");
+            }
+            
+            ps = cons.prepareStatement(sql);
             ps.setInt(1, id);
             ps.execute();
-            ResultSet rs = ps.getGeneratedKeys();
+//            ResultSet rs = ps.getGeneratedKeys();
+
+            ps = cons.prepareStatement(sqlCount);
+            rs = ps.executeQuery();
+            while(rs.next())
+            {
+                after = rs.getInt("COUNT(*)");
+            }
             ps.close();
             cons.close();
-            return  rs.getInt(1);
+            if(before == after)
+                return 0;
+            return 1;
         } catch (Exception e) {
             e.printStackTrace();
         }

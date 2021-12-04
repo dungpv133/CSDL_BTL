@@ -21,7 +21,8 @@ public class KhachHangFrame extends javax.swing.JFrame {
         initComponents();
         setTitle("Thong tin khach hang");
         KhachHangNewController khachHangNewController = 
-                new KhachHangNewController(BtSave, txtId, TxtHo, TxtTen, TxtNam, TxtDchi, TxtTong, jlbMsg);
+                new KhachHangNewController(BtSave, LblId, TxtHo, TxtTen, TxtNam,
+                        TxtDchi, jlbTongTien, jlbTuoi, jlbMsg);
         khachHangNewController.setView(khachHang);
 //        khachHangNewController.setEvent();
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -52,9 +53,11 @@ public class KhachHangFrame extends javax.swing.JFrame {
         TxtTen = new javax.swing.JTextField();
         TxtNam = new javax.swing.JTextField();
         TxtDchi = new javax.swing.JTextField();
-        TxtTong = new javax.swing.JTextField();
-        txtId = new javax.swing.JTextField();
         jlbMsg = new javax.swing.JLabel();
+        jlbTuoi = new javax.swing.JLabel();
+        jlbId2 = new javax.swing.JLabel();
+        LblId = new javax.swing.JLabel();
+        jlbTongTien = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -115,21 +118,17 @@ public class KhachHangFrame extends javax.swing.JFrame {
             }
         });
 
-        TxtTong.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        TxtTong.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtTongActionPerformed(evt);
-            }
-        });
-
-        txtId.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        txtId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdActionPerformed(evt);
-            }
-        });
-
         jlbMsg.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+
+        jlbTuoi.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+
+        jlbId2.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        jlbId2.setText("Tuổi: ");
+
+        LblId.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        LblId.setToolTipText("");
+
+        jlbTongTien.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -157,18 +156,20 @@ public class KhachHangFrame extends javax.swing.JFrame {
                                 .addGap(51, 51, 51)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(LbTongTien)
-                                    .addComponent(jlbId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jlbId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jlbId2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(71, 71, 71)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TxtTong, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(127, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jlbTuoi, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                                    .addComponent(LblId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jlbTongTien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(225, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jlbMsg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(LabelInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(0, 271, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
                         .addComponent(BtSave, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(47, 47, 47))))
@@ -187,17 +188,19 @@ public class KhachHangFrame extends javax.swing.JFrame {
                     .addComponent(LblHo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LbTongTien, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxtHo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtTong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jlbTongTien, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LbTen, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxtTen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlbId, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LblId, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LbNam, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtNam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtNam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlbTuoi, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlbId2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LbDChi, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -223,14 +226,6 @@ public class KhachHangFrame extends javax.swing.JFrame {
     private void TxtDchiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtDchiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtDchiActionPerformed
-
-    private void TxtTongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtTongActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtTongActionPerformed
-
-    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdActionPerformed
 
     private void BtSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSaveActionPerformed
         // TODO add your handling code here:
@@ -281,13 +276,15 @@ public class KhachHangFrame extends javax.swing.JFrame {
     private javax.swing.JLabel LbTen;
     private javax.swing.JLabel LbTongTien;
     private javax.swing.JLabel LblHo;
+    private javax.swing.JLabel LblId;
     private javax.swing.JTextField TxtDchi;
     private javax.swing.JTextField TxtHo;
     private javax.swing.JTextField TxtNam;
     private javax.swing.JTextField TxtTen;
-    private javax.swing.JTextField TxtTong;
     private javax.swing.JLabel jlbId;
+    private javax.swing.JLabel jlbId2;
     private javax.swing.JLabel jlbMsg;
-    private javax.swing.JTextField txtId;
+    private javax.swing.JLabel jlbTongTien;
+    private javax.swing.JLabel jlbTuoi;
     // End of variables declaration//GEN-END:variables
 }

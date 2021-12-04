@@ -45,6 +45,7 @@ public class DonHangView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jButton1.setBackground(new java.awt.Color(100, 221, 23));
         jButton1.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         jButton1.setText("+ Thêm mới");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -64,6 +65,7 @@ public class DonHangView extends javax.swing.JFrame {
             .addGap(0, 339, Short.MAX_VALUE)
         );
 
+        BtUpdate.setBackground(new java.awt.Color(100, 221, 23));
         BtUpdate.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         BtUpdate.setText("Cập nhật");
         BtUpdate.addActionListener(new java.awt.event.ActionListener() {

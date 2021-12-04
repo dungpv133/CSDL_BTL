@@ -20,13 +20,13 @@ import service.SanPhamService;
 //import com.toedter.calendar.JDateChooser;
 public class DonHangNewController {
     private JButton btnSubmit;
-    private JTextField jtfIdDon;
+    private JLabel jlblIdDon;
     private JTextField jtfIdKhach;
     private JTextField jtfNgay;
-    private JTextField jtfSoSp;
-    private JTextField jtfTien;
-    private JTextField jtfGiam;
-    private JTextField jtfTong;
+    private JLabel jlbSoSP;
+    private JLabel jlblTien;
+    private JLabel jlblGiam;
+    private JLabel jlblTong;
 
 //    private JTextArea jtaDiaChi;
     private JLabel jlbMsg;
@@ -35,17 +35,17 @@ public class DonHangNewController {
 
     private DonHangService donHangService = null;
 
-    public DonHangNewController(JButton btnSubmit, JTextField jtfIdDon, JTextField jtfIdKhach, 
-            JTextField jtfNgay, JTextField jtfSoSp, JTextField jtfTien, 
-            JTextField jtfGiam, JTextField jtfTong, JLabel jlbMsg) {
+    public DonHangNewController(JButton btnSubmit, JLabel jlblIdDon, JTextField jtfIdKhach, 
+            JTextField jtfNgay, JLabel jlbSoSP, JLabel jlblTien, 
+            JLabel jlblGiam, JLabel jlblTong, JLabel jlbMsg) {
         this.btnSubmit = btnSubmit;
-        this.jtfIdDon = jtfIdDon;
+        this.jlblIdDon = jlblIdDon;
         this.jtfIdKhach = jtfIdKhach;
         this.jtfNgay = jtfNgay;
-        this.jtfSoSp = jtfSoSp;
-        this.jtfTien = jtfTien;
-        this.jtfGiam = jtfGiam;
-        this.jtfTong = jtfTong;
+        this.jlbSoSP = jlbSoSP;
+        this.jlblTien = jlblTien;
+        this.jlblGiam = jlblGiam;
+        this.jlblTong = jlblTong;
         this.jlbMsg = jlbMsg;
         
         this.donHangService = new DonHangService();
@@ -60,17 +60,17 @@ public class DonHangNewController {
     public void setView(DonHang donHang) {
         this.donHang = donHang;
         // set data
-        jtfIdDon.setText(Integer.toString(donHang.getId_don()));
+        jlblIdDon.setText(Integer.toString(donHang.getId_don()));
         jtfIdKhach.setText(Integer.toString(donHang.getId_khach()));
 //        if(donHang.getNgay() == null)
 //        {
 //            donHang.setNgay((java.sql.Date) new Date());
 //        }
         jtfNgay.setText(donHang.getNgay());
-        jtfSoSp.setText(Integer.toString(donHang.getSo_sp()));
-        jtfTien.setText(Long.toString(donHang.getTien()));
-        jtfGiam.setText(Long.toString(donHang.getGiam()));
-        jtfTong.setText(Long.toString(donHang.getTong()));
+        jlbSoSP.setText(Integer.toString(donHang.getSo_sp()));
+        jlblTien.setText(Long.toString(donHang.getTien()));
+        jlblGiam.setText(Long.toString(donHang.getGiam()));
+        jlblTong.setText(Long.toString(donHang.getTong()));
         // set event
         setEvent();
     }
@@ -83,19 +83,19 @@ public class DonHangNewController {
                     if (!checkNotNull()) {
                         jlbMsg.setText("Vui lòng nhập dữ liệu bắt buộc!");
                     } else {
-                        donHang.setId_don(Integer.parseInt(jtfIdDon.getText()));
+                        donHang.setId_don(Integer.parseInt(jlblIdDon.getText()));
                         donHang.setId_khach(Integer.parseInt(jtfIdKhach.getText()));
                         donHang.setNgay(jtfNgay.getText());
-                        donHang.setSo_sp(Integer.parseInt(jtfSoSp.getText()));
-                        donHang.setTien(Long.parseLong(jtfTien.getText()));
-                        donHang.setGiam(Long.parseLong(jtfGiam.getText()));
-                        donHang.setTong(Long.parseLong(jtfTong.getText()));
+                        donHang.setSo_sp(Integer.parseInt(jlbSoSP.getText()));
+                        donHang.setTien(Long.parseLong(jlblTien.getText()));
+                        donHang.setGiam(Long.parseLong(jlblGiam.getText()));
+                        donHang.setTong(Long.parseLong(jlblTong.getText()));
 //                        System.out.println(sanPham.getId_sp());
                         if (showDialog()) {
                             int lastId = donHangService.createOrUpdate(donHang);
                             if (lastId != 0) {
                                 donHang.setId_don(lastId);
-                                jtfIdDon.setText(String.valueOf(donHang.getId_don()));
+                                jlblIdDon.setText(String.valueOf(donHang.getId_don()));
                                 jlbMsg.setText("Xử lý cập nhật dữ liệu thành công!");
                             } else {
                                 jlbMsg.setText("Có lỗi xảy ra, vui lòng thử lại!");
@@ -128,7 +128,7 @@ public class DonHangNewController {
     }
 
     private boolean checkNotNull() {
-        return jtfIdKhach.getText() != null && !jtfIdDon.getText().equalsIgnoreCase("");
+        return jtfIdKhach.getText() != null && !jlblIdDon.getText().equalsIgnoreCase("");
     }
 
     private boolean showDialog() {

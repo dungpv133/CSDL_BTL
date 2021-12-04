@@ -41,9 +41,11 @@ public class KhachHangView extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         BtUpdate = new javax.swing.JButton();
+        jbtXoa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jButton1.setBackground(new java.awt.Color(100, 221, 23));
         jButton1.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         jButton1.setText("+ Thêm mới");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -63,11 +65,21 @@ public class KhachHangView extends javax.swing.JFrame {
             .addGap(0, 339, Short.MAX_VALUE)
         );
 
+        BtUpdate.setBackground(new java.awt.Color(100, 221, 23));
         BtUpdate.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         BtUpdate.setText("Cập nhật");
         BtUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtUpdateActionPerformed(evt);
+            }
+        });
+
+        jbtXoa.setBackground(new java.awt.Color(100, 221, 23));
+        jbtXoa.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        jbtXoa.setText("Xóa");
+        jbtXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtXoaActionPerformed(evt);
             }
         });
 
@@ -83,7 +95,9 @@ public class KhachHangView extends javax.swing.JFrame {
                         .addComponent(BtUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 260, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbtXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(69, 69, 69))
@@ -93,7 +107,9 @@ public class KhachHangView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbtXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BtUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -129,6 +145,11 @@ public class KhachHangView extends javax.swing.JFrame {
     private void BtUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtUpdateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtUpdateActionPerformed
+
+    private void jbtXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtXoaActionPerformed
+        // TODO add your handling code here:
+        new KhachHangDelete().setVisible(true);
+    }//GEN-LAST:event_jbtXoaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,5 +192,6 @@ public class KhachHangView extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton jbtXoa;
     // End of variables declaration//GEN-END:variables
 }
