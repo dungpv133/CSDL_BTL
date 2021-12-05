@@ -19,6 +19,7 @@ public class DonChiTietDelete extends javax.swing.JFrame {
      */
     public DonChiTietDelete() {
         initComponents();
+        setTitle("Xóa đơn hàng chi tiết");
         jbtXoa.setEnabled(false);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
     }

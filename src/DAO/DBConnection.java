@@ -1,17 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package DAO;
 
 import java.sql.*;
 import com.mysql.cj.jdbc.ConnectionImpl;
 
-/**
- *
- * @author ADMIN
- */
+
 public class DBConnection {
     public static Connection getConnection() {
         Connection cons = null;
