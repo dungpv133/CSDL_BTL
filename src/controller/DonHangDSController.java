@@ -60,6 +60,7 @@ public class DonHangDSController {
     }
 
     public void setDataToTable() {
+//        donHangService.createOrUpdate(donHang);
         List<DonHang> listItem = donHangService.getList();
         DefaultTableModel model = classTableModelDonHang.setTableDonHang(listItem, COLUMNS);
         JTable table = new JTable(model);

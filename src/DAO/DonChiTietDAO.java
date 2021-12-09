@@ -18,6 +18,24 @@ public class DonChiTietDAO {
     public List<DonChiTiet> getList() {
         Connection cons = (Connection) DBConnection.getConnection();
         String sql = "SELECT * FROM sieuthi.don_chi_tiet";
+        
+        String sqlUpdate =  "update sieuthi.don_chi_tiet " +
+                            "set tong_tien = (select(don_gia) from sieuthi.san_pham " +
+                            "where sieuthi.don_chi_tiet.id_sp = sieuthi.san_pham.id_sp) " +
+                            "* so_luong; ";
+        String sqlUpdate1 = "update sieuthi.don_hang " +
+        "set so_sp = (select count(id_don) from sieuthi.don_chi_tiet " +
+        "where sieuthi.don_hang.id_don = sieuthi.don_chi_tiet.id_don); ";
+        String sqlUpdate2 = "update sieuthi.don_hang, sieuthi.don_chi_tiet " +
+        "set sieuthi.don_hang.tien = (select sum(sieuthi.don_chi_tiet.tong_tien) from sieuthi.don_chi_tiet " +
+        "where sieuthi.don_hang.id_don = sieuthi.don_chi_tiet.id_don); ";
+        String sqlUpdate3 = "update sieuthi.don_hang " +
+        "set giam = (select (case when (select hang from sieuthi.khach_hang  " +
+        "where don_hang.id_khach = khach_hang.id_khach) = 'VANG' then 20 " +
+        "when (select hang from sieuthi.khach_hang " +
+        "where don_hang.id_khach = khach_hang.id_khach) = 'BAC' then 10 " +
+        "when (select hang from sieuthi.khach_hang  " +
+        "where don_hang.id_khach = khach_hang.id_khach) = 'KHONG CO HANG' then 0 END) ); ";
         List<DonChiTiet> list = new ArrayList<>();
         try {
             PreparedStatement ps = (PreparedStatement) cons.prepareStatement(sql);
@@ -31,6 +49,14 @@ public class DonChiTietDAO {
                 
                 list.add(donChiTiet);
             }
+             ps = cons.prepareStatement(sqlUpdate);
+            ps.execute();
+            ps = cons.prepareStatement(sqlUpdate1);
+            ps.execute();
+            ps = cons.prepareStatement(sqlUpdate2);
+            ps.execute();
+            ps = cons.prepareStatement(sqlUpdate3);
+            ps.execute();
             ps.close();
             cons.close();
         } catch (Exception e) {
@@ -49,6 +75,19 @@ public class DonChiTietDAO {
                                 "set tong_tien = (select(don_gia) from sieuthi.san_pham " +
                                 "where sieuthi.don_chi_tiet.id_sp = sieuthi.san_pham.id_sp) " +
                                 "* so_luong; ";
+            String sqlUpdate1 = "update sieuthi.don_hang " +
+            "set so_sp = (select count(id_don) from sieuthi.don_chi_tiet " +
+            "where sieuthi.don_hang.id_don = sieuthi.don_chi_tiet.id_don); ";
+            String sqlUpdate2 = "update sieuthi.don_hang, sieuthi.don_chi_tiet " +
+            "set sieuthi.don_hang.tien = (select sum(sieuthi.don_chi_tiet.tong_tien) from sieuthi.don_chi_tiet " +
+            "where sieuthi.don_hang.id_don = sieuthi.don_chi_tiet.id_don); ";
+            String sqlUpdate3 = "update sieuthi.don_hang " +
+            "set giam = (select (case when (select hang from sieuthi.khach_hang  " +
+            "where don_hang.id_khach = khach_hang.id_khach) = 'VANG' then 20 " +
+            "when (select hang from sieuthi.khach_hang " +
+            "where don_hang.id_khach = khach_hang.id_khach) = 'BAC' then 10 " +
+            "when (select hang from sieuthi.khach_hang  " +
+            "where don_hang.id_khach = khach_hang.id_khach) = 'KHONG CO HANG' then 0 END) ); ";
             PreparedStatement ps = cons.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setInt(1, donChiTiet.getId_don());
             ps.setInt(2, donChiTiet.getId_sp());
@@ -61,6 +100,12 @@ public class DonChiTietDAO {
                 generatedKey = rs.getInt(1);
             }
             ps = cons.prepareStatement(sqlUpdate);
+            ps.execute();
+            ps = cons.prepareStatement(sqlUpdate1);
+            ps.execute();
+            ps = cons.prepareStatement(sqlUpdate2);
+            ps.execute();
+            ps = cons.prepareStatement(sqlUpdate3);
             ps.execute();
             ps.close();
             cons.close();

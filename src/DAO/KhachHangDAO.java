@@ -19,6 +19,9 @@ public class KhachHangDAO {
     public List<KhachHang> getList() {
         Connection cons = (Connection) DBConnection.getConnection();
         String sql = "SELECT * FROM sieuthi.khach_hang";
+        String sqlUpdate =  "update sieuthi.khach_hang, sieuthi.don_hang " +
+                        "set sieuthi.khach_hang.tong_tien = (select sum(sieuthi.don_hang.tong_tien) " +
+                        "from sieuthi.don_hang where sieuthi.don_hang.id_khach = sieuthi.khach_hang.id_khach);";
         List<KhachHang> list = new ArrayList<>();
         try {
             PreparedStatement ps = (PreparedStatement) cons.prepareStatement(sql);
@@ -35,6 +38,8 @@ public class KhachHangDAO {
                 khachHang.setHang(rs.getString("hang"));
                 list.add(khachHang);
             }
+            ps = cons.prepareStatement(sqlUpdate);
+            ps.execute();
             ps.close();
             cons.close();
         } catch (Exception e) {

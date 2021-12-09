@@ -20,6 +20,19 @@ public class DonHangDAO {
     public List<DonHang> getList() {
         Connection cons = (Connection) DBConnection.getConnection();
         String sql = "SELECT * FROM sieuthi.don_hang";
+        String sqlUpdate1 = "update sieuthi.don_hang " +
+            "set so_sp = (select count(id_don) from sieuthi.don_chi_tiet " +
+            "where sieuthi.don_hang.id_don = sieuthi.don_chi_tiet.id_don); ";
+            String sqlUpdate2 = "update sieuthi.don_hang, sieuthi.don_chi_tiet " +
+            "set sieuthi.don_hang.tien = (select sum(sieuthi.don_chi_tiet.tong_tien) from sieuthi.don_chi_tiet " +
+            "where sieuthi.don_hang.id_don = sieuthi.don_chi_tiet.id_don); ";
+            String sqlUpdate3 = "update sieuthi.don_hang " +
+            "set giam = (select (case when (select hang from sieuthi.khach_hang  " +
+            "where don_hang.id_khach = khach_hang.id_khach) = 'VANG' then 20 " +
+            "when (select hang from sieuthi.khach_hang " +
+            "where don_hang.id_khach = khach_hang.id_khach) = 'BAC' then 10 " +
+            "when (select hang from sieuthi.khach_hang  " +
+            "where don_hang.id_khach = khach_hang.id_khach) = 'KHONG CO HANG' then 0 END) ); ";
         List<DonHang> list = new ArrayList<>();
         try {
             PreparedStatement ps = (PreparedStatement) cons.prepareStatement(sql);
@@ -35,6 +48,11 @@ public class DonHangDAO {
                 donHang.setTong(rs.getLong("tong_tien"));
                 list.add(donHang);
             }
+            ps = cons.prepareStatement(sqlUpdate1);
+            ps.execute();
+            ps = cons.prepareStatement(sqlUpdate2);
+            ps.execute(); ps = cons.prepareStatement(sqlUpdate3);
+            ps.execute();
             ps.close();
             cons.close();
         } catch (Exception e) {
